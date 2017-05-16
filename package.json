@@ -1,0 +1,11 @@
+{
+  "name": "node_crud_no_framework_version_1.1",
+  "version": "1.0.1",
+  "description": "Node No framework used. Mostly everything from scratch ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "parth mahajan (oo1)",
+  "license": "ISC"
+}
