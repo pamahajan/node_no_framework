@@ -31,11 +31,11 @@ try{
 	// start server to listen
 
 	/** * Initiate Server Intance * */
-	let serverInstance = require('./project_modules/server');
-	serverInstance.init();
+	let serverInstance = require('./project_modules/server').init();
 
 	// start listening 
-
+	serverInstance.listen(3000);
+	console.log('Server initiated at port 3000');
 } catch(err){
 	console.log('File: Index.js, Error: ', err);
 }
