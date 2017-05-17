@@ -17,10 +17,25 @@ try{
 
 	/** * Additional middlewares that need to be parsed * */
 	let middleware = require('./project_modules/middleware');
+
 	// get Router - The one who knows what to do with url path
-	// project dependecies/ features specific thing 
+	
+	/** * Initialize Routers * */
+	let custom_router = require('./custom_modules/router');
+	
+	// get feature dependencies
+
+	/** * Require/Initiate Features * */
+	require('./features');
+
 	// start server to listen
+
+	/** * Initiate Server Intance * */
+	let serverInstance = require('./project_modules/server');
+
+
 	// start listening 
+
 } catch(err){
 	console.log('File: Index.js, Error: ', err);
 }
