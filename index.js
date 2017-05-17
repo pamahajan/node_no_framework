@@ -32,7 +32,7 @@ try{
 
 	/** * Initiate Server Intance * */
 	let serverInstance = require('./project_modules/server');
-
+	serverInstance.init();
 
 	// start listening 
 
