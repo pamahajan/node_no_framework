@@ -5,8 +5,7 @@ module.exports = function(opts){
 
 		console.log('Requiring Project Features');
 		
-		return routes;
-	} catch(err){
+		} catch(err){
 
 		console.log('File: features, Error: ', err);
 	}

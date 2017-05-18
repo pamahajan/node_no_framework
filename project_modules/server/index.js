@@ -9,8 +9,15 @@ let init = function(opts) {
     	console.log('Initaing Server Instance To handle Request');
 
     	/** * Everything that needs to be done with a request starts from here * */
-    	let onRequest = function(request, response){
+    	let onRequest = function(req, res){
     		console.log('request recieved');
+
+            let mw = opts.mw;
+            delete opts.mw;
+            opts.req = req;
+            opts.res = res;
+
+            mw(opts);
     	}
 
     	let server_opts = {

@@ -18,16 +18,26 @@ try{
 	let custom_router = require('./custom_modules/router');
 
 	/** * Require Api Manager * */
-	let apiManager = require('./custom_modules/apiManager');
+	let apiMngr = require('./custom_modules/apiManager');
 	
 	/** * Require/Initiate Features * */
-	require('./features');
+	let feature_opts = {
+		apiMngr: apiMngr,
+	}
+
+	require('./features')(feature_opts);
 
 	/** * Additional middlewares that need to be parsed by request* */
-	let middleware = require('./project_modules/middleware');
+	let mw = require('./project_modules/middleware');
 
 	/** * Initiate Server Intance * */
-	let serverInstance = require('./project_modules/server').init();
+	let server_opts = {
+		router: custom_router,
+		apiMngr: apiMngr,
+		mw: mw
+	}; 
+
+	let serverInstance = require('./project_modules/server').init(server_opts);
 
 	// start listening 
 	serverInstance.listen(3000);
