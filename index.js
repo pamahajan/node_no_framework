@@ -13,22 +13,15 @@ process.on('uncaughtRejection', ( err ) => {
 try{
 
 	console.log('Initializing Server');	
-	// get middleware - project additional middlewares that need to be parsed
 
-	/** * Additional middlewares that need to be parsed * */
-	let middleware = require('./project_modules/middleware');
-
-	// get Router - The one who knows what to do with url path
-	
-	/** * Initialize Routers * */
+	/** * Initialize Routers - The one who knows what to do with url path* */
 	let custom_router = require('./custom_modules/router');
-	
-	// get feature dependencies
 
 	/** * Require/Initiate Features * */
 	require('./features');
 
-	// start server to listen
+	/** * Additional middlewares that need to be parsed by request* */
+	let middleware = require('./project_modules/middleware');
 
 	/** * Initiate Server Intance * */
 	let serverInstance = require('./project_modules/server').init();
