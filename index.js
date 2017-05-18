@@ -17,6 +17,9 @@ try{
 	/** * Initialize Routers - The one who knows what to do with url path* */
 	let custom_router = require('./custom_modules/router');
 
+	/** * Require Api Manager * */
+	let apiManager = require('./custom_modules/apiManager');
+	
 	/** * Require/Initiate Features * */
 	require('./features');
 
