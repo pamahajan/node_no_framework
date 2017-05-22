@@ -1,6 +1,7 @@
 'use strict'
 
-let http = require('http');
+let http = require('http'), 
+	fs = require('fs');
 
 let custom_http = function(){
 	try{
@@ -20,4 +21,22 @@ let custom_http = function(){
 	}
 }
 
+let custom_fs = function(opts){
+	try{
+
+		let readdiirSync = function(opts.path){
+			return fs.readdiirSync(path);
+		}
+
+		return {
+			readdiirSync: readdiirSync
+		};
+	} catch(err){
+
+		console.log('File: Utilities, Custom FS, Error: ', err);
+		throw(err);
+	}
+}
+
 exports.http = custom_http();
+exports.fs = custom_fs();
