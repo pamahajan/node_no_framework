@@ -1,7 +1,8 @@
 'use strict'
 
 let http = require('http'), 
-	fs = require('fs');
+	fs = require('fs'),
+	path = require('path');
 
 let custom_http = function(){
 	try{
@@ -24,12 +25,12 @@ let custom_http = function(){
 let custom_fs = function(){
 	try{
 
-		let readdiirSync = function(path){
-			return fs.readdiirSync(path);
+		let readdirSync = function(path){
+			return fs.readdirSync(path);
 		}
 
 		return {
-			readdiirSync: readdiirSync
+			readdirSync: readdirSync
 		};
 	} catch(err){
 
@@ -38,5 +39,22 @@ let custom_fs = function(){
 	}
 }
 
+let custom_path = function(){
+	try{
+
+		let join = function(){
+
+			return path.join(arguments[0], arguments[1]);
+		}
+
+		return {
+			join: join
+		}
+	} catch(err){
+		console.log('File: utilities, Custom path, Error: ', err);
+	}
+}
+
 exports.http = custom_http();
 exports.fs = custom_fs();
+exports.path = custom_path();

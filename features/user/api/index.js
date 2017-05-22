@@ -1,7 +1,7 @@
 'use strict'
 
 let userCtrl = require('./../controller'),
-	parse = require('./../../custom_modules/parser');
+	parse = require('./../../../custom_modules/parser');
 
 module.exports = function(opts){
 	try{

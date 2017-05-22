@@ -28,7 +28,7 @@ module.exports = function(opts) {
 
                 	}
                 	break;
-                case default: 
+                default: 
                 	{
                 		console.log('Unable to handle request');
                 		reject(new Error('Unknown Request Type'));
