@@ -17,6 +17,10 @@ module.exports = function(opts){
 		custom_cors(cors_opts);
 
 		// call router
+		let router = opts.router;
+		delete opts.router;
+
+		router(opts);
 	} catch(err){
 		console.log('File: Middleware, Error: ', err);
 		throw(err);

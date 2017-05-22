@@ -21,7 +21,7 @@ module.exports = function(opts){
 				
 				let mwHandler = function(){
 					return new Promise((resolve, reject) => {
-						resolve(mws[i](opts));
+						resolve(routes[opts.req.url].mws[i]);
 					});
 				}
 
@@ -32,7 +32,7 @@ module.exports = function(opts){
 					else
 						resolve();
 				}).catch((err) => {
-					throw(err);
+					reject(err);
 				})
 					
 			})		

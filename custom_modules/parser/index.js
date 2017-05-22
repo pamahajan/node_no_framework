@@ -18,6 +18,7 @@ module.exports = function(opts) {
 
                         opts.req.on('end', function() {
                             data = Buffer.concat(data).toString();
+                            opts.requestData = data;
                             resolve(data);
                         })
                     }

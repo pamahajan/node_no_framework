@@ -16,17 +16,17 @@ module.exports = function(opts){
 		if(!opts.apiMngr.routes)
 			throw('No Routes Found');
 
-		if(typeof opts.apiMngr.routes[opts.req.url] === 'function'){
-			//opts.apiMngr.routes[opts.url]();
+		if(typeof opts.apiMngr.routes[opts.req.url].ctrl === 'function'){
 			new Promise((resolve, reject) => {
-				if(opts.apiMngr.routes[opts.req.path].mws.length > 0)
-					resolve(opts.apiMngr.handleMws(opts));
+				if(opts.apiMngr.routes[opts.req.url].mws.length > 0)
+					resolve(opts.apiMngr.handleAPIMws(opts));
 				else
 					resolve();
 			}).then((data) => {
-				// call controller
+				opts.apiMngr.routes[opts.req.url].ctrl(opts);
 			}).catch((err) => {
 				console.log(err);
+				reject(err);
 			})
 		} else{
 			opts.res.statusCode = 404;
