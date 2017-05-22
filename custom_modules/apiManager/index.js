@@ -17,17 +17,18 @@ module.exports = function(){
 			
 			
 			return new Promise((resolve, reject) => {
-				let i=0; 
+				let i = 0; 
 				
 				let mwHandler = function(){
 					return new Promise((resolve, reject) => {
 						resolve(routes[opts.req.url].mws[i]);
 					});
-				}
+				};
 
-				mwHandler.then((data) => {
+				mwHandler().then((data) => {
+					
 					i++;
-					if(opts.mws.length <= i)
+					if(i < routes[opts.req.url].mws.length)
 						mwHandler();
 					else
 						resolve();
@@ -40,7 +41,8 @@ module.exports = function(){
 
 		return {
 			routes: routes,
-			addRoute: addRoute
+			addRoute: addRoute,
+			handleAPIMws: handleAPIMws
 		}
 	} catch(err){
 		console.log('File: APIManager, Error :', err);

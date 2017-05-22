@@ -15,7 +15,7 @@ module.exports = function(opts){
 		console.log('Router Initialized');
 		if(!opts.apiMngr.routes)
 			throw('No Routes Found');
-
+		
 		if(typeof opts.apiMngr.routes[opts.req.url].ctrl === 'function'){
 			new Promise((resolve, reject) => {
 				if(opts.apiMngr.routes[opts.req.url].mws.length > 0)
