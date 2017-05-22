@@ -5,11 +5,22 @@ module.exports = function(opts){
 
 		let routes = {};
 
+		let addRoute = function(opts){
+			routes[opts.api] = {
+				type: opts.type,
+				mws: opts.mws,
+				ctrl: opts.ctrl
+			}
+		};
+
 		return {
-			routes: routes;
+			routes: routes,
+			addRoute: addRoute
 		}
 	} catch(err){
 		console.log('File: APIManager, Error :', err);
 		throw(err);
 	}
 }
+
+//Handle API Middlewares

@@ -3,7 +3,7 @@
 module.exports = function*(opts){
 	try{
 		
-		let res = opts.response;
+		let res = opts.res, req = opts.req;
 		if(req.method == 'OPTIONS'){
 			res.setHeader('Access-Control-Allow-Origin', '*');
             res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');

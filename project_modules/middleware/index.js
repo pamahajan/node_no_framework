@@ -8,6 +8,15 @@ module.exports = function(opts){
 
 		console.log('Sending Request through middlewares');
 
+		/** * CORS * */
+		let cors_opts = {
+			req: opts.req,
+			res: opts.res
+		};
+
+		custom_cors(cors_opts);
+
+		
 	} catch(err){
 		console.log('File: Middleware, Error: ', err);
 		throw(err);
