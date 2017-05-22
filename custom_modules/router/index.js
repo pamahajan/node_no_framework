@@ -13,11 +13,21 @@ module.exports = function(opts){
 	try{
 
 		console.log('Router Initialized');
-		if(!opts.routes)
+		if(!opts.apiMngr.routes)
 			throw('No Routes Found');
 
-		if(typeof opts.routes[opts.url] === 'function'){
-			opts.routes[opts.url]();
+		if(typeof opts.apiMngr.routes[opts.req.url] === 'function'){
+			//opts.apiMngr.routes[opts.url]();
+			new Promise((resolve, reject) => {
+				if(opts.apiMngr.routes[opts.req.path].mws.length > 0)
+					resolve(opts.apiMngr.handleMws(opts));
+				else
+					resolve();
+			}).then((data) => {
+				// call controller
+			}).catch((err) => {
+				console.log(err);
+			})
 		} else{
 			opts.res.statusCode = 404;
 			opts.res.end();

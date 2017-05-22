@@ -13,6 +13,31 @@ module.exports = function(opts){
 			}
 		};
 
+		let handleAPIMws = function(opts){
+			
+			
+			return new Promise((resolve, reject) => {
+				let i=0; 
+				
+				let mwHandler = function(){
+					return new Promise((resolve, reject) => {
+						resolve(mws[i](opts));
+					});
+				}
+
+				mwHandler.then((data) => {
+					i++;
+					if(opts.mws.length <= i)
+						mwHandler();
+					else
+						resolve();
+				}).catch((err) => {
+					throw(err);
+				})
+					
+			})		
+		}
+
 		return {
 			routes: routes,
 			addRoute: addRoute
