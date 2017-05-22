@@ -1,6 +1,6 @@
 'use strict'
 
-let custom_cors = require('./../custom_modules/cors');
+let custom_cors = require('./../../custom_modules/cors');
 
 /** * Define all middleware that need to be passed * */
 module.exports = function(opts){
