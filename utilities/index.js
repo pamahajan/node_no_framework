@@ -21,10 +21,10 @@ let custom_http = function(){
 	}
 }
 
-let custom_fs = function(opts){
+let custom_fs = function(){
 	try{
 
-		let readdiirSync = function(opts.path){
+		let readdiirSync = function(path){
 			return fs.readdiirSync(path);
 		}
 
