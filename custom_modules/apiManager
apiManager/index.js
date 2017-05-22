@@ -7,7 +7,7 @@ module.exports = function(opts){
 
 		let addRoute = function(opts){
 			routes[opts.api] = {
-				type: opts.type,
+				method: opts.method,
 				mws: opts.mws,
 				ctrl: opts.ctrl
 			}
