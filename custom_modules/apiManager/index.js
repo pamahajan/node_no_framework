@@ -3,13 +3,24 @@
 module.exports = function(){
 	try{
 
-		let routes = {};
+		let allowedMethods = ['get', 'post'];
+		let routes = {
+
+		};
+
+		for(let i=0; i<allowedMethods.length; i++){
+			routes[allowedMethods[i]] = {}
+		}
 
 		let addRoute = function(opts){
-			routes[opts.api] = {
+
+			opts.method = opts.method.toLowerCase();
+			routes[opts.method][opts.api] = {
+			
 				method: opts.method,
 				mws: opts.mws,
 				ctrl: opts.ctrl
+			
 			}
 		};
 
@@ -21,14 +32,14 @@ module.exports = function(){
 				
 				let mwHandler = function(){
 					return new Promise((resolve, reject) => {
-						resolve(routes[opts.req.url].mws[i]);
+						resolve(routes[opts.req.method][opts.req.url].mws[i]);
 					});
 				};
 
 				mwHandler().then((data) => {
 					
 					i++;
-					if(i < routes[opts.req.url].mws.length)
+					if(i < routes[opts.req.method][opts.req.url].mws.length)
 						mwHandler();
 					else
 						resolve();

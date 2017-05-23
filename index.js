@@ -14,6 +14,9 @@ try{
 
 	console.log('Initializing Server');	
 
+	// let db = require('./custom_modules/db');
+	// db.init();
+
 	/** * Initialize Routers - The one who knows what to do with url path* */
 	let custom_router = require('./custom_modules/router');
 
@@ -26,7 +29,7 @@ try{
 	}
 
 	require('./features')(feature_opts);
-	
+	console.log(apiMngr.routes);
 	/** * Additional middlewares that need to be parsed by request* */
 	let mw = require('./project_modules/middleware');
 

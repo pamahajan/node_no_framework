@@ -5,7 +5,7 @@ let userCtrl = require('./../controller'),
 
 module.exports = function(opts){
 	try{
-
+		
 		opts.apiMngr.addRoute({
 			api: '/v1/user',
 			method: 'get',
