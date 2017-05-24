@@ -29,7 +29,7 @@ try{
 	}
 
 	require('./features')(feature_opts);
-	console.log(apiMngr.routes);
+
 	/** * Additional middlewares that need to be parsed by request* */
 	let mw = require('./project_modules/middleware');
 

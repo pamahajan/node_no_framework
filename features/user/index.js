@@ -5,6 +5,8 @@ let utilities = require('./../../utilities');
 module.exports = function(opts){
 	try{
 
+		console.log('Requiring User');
+		
 		let modelsPath = utilities.path.join(__dirname, './model'), apiPath = utilities.path.join(__dirname, './api');
 
 		utilities.fs.readdirSync(modelsPath).forEach((file) => {

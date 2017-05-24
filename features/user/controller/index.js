@@ -14,7 +14,7 @@ exports.getUserCtrl = function(opts){
 exports.addUserCtrl = function(opts){
 	try{
 
-		console.log('add user data ctrl');
+		console.log('Request to Add User');
 	} catch(err){
 
 		console.log('File: User, controller, Error: ', err);
